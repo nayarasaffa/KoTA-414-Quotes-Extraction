@@ -7,11 +7,7 @@ class Main:
     def __init__(self, args):
         self.input_file = f"dataset/{args.input_file}"
         self.output_file = f"dataset/{args.output_file}"
-
-        self.all_flag = args.all
         self.check_dataset_flag = args.check_dataset
-        self.preprocessing_flag = args.preprocessing
-        self.token_segmentation_flag = args.token_segmentation
 
         super().__init__()
 
@@ -37,10 +33,8 @@ class Main:
         print(longest_sentence)
 
     def main(self):
-        if self.preprocessing_flag or self.all_flag:
-            self.preprocessing(self.input_file, self.output_file)
-        if self.token_segmentation_flag or self.all_flag:
-            self.token_segmentation(self.input_file if self.token_segmentation_flag else self.output_file, self.output_file)
+        self.preprocessing(self.input_file, self.output_file)
+        self.token_segmentation(self.input_file if self.token_segmentation_flag else self.output_file, self.output_file)
         if self.check_dataset_flag:
             self.check_dataset(self.input_file)
 
@@ -51,15 +45,6 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "-o", "--output_file", type=str, help="Path to the output file"
-    )
-    parser.add_argument(
-        "--all", action="store_true", help="Jalankan semua proses."
-    )
-    parser.add_argument(
-        "-p", "--preprocessing", action="store_true", help="Jalankan proses preprocessing pada corpus."
-    )
-    parser.add_argument(
-        "-t", "--token_segmentation", action="store_true", help="Jalankan proses memisahkan kalimat pada token."
     )
     parser.add_argument(
         "-c", "--check_dataset", action="store_true", help="Check dataset."
