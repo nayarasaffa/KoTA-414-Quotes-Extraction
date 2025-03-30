@@ -1,0 +1,5 @@
+spacy
+gensim
+pytorch-crf
+label-studio
+torchtext==0.6.0
