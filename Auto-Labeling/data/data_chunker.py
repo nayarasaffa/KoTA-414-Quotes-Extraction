@@ -18,11 +18,15 @@ class DataChunker:
     def save_chunks(self):
         os.makedirs(self.output_dir, exist_ok=True)
         chunks = self.split_data()
+
+        file_name, file_ext = os.path.splitext(self.input_file)
+        output_file = f"{file_name}_{idx+1}{file_ext}"
+
         
         for idx, chunk in enumerate(chunks):
-            with open(f"{self.input_file}_{idx+1}.json", "w", encoding="utf-8") as f:
+            with open(f"{output_file}_{idx+1}.json", "w", encoding="utf-8") as f:
                 json.dump(chunk, f, indent=4, ensure_ascii=False)
-            print(f"File {self.input_file}_{idx+1}.json telah dibuat.")
+            print(f"File {output_file}_{idx+1}.json telah dibuat.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Split a JSON dataset into smaller chunks.")
