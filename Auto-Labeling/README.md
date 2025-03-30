@@ -12,7 +12,7 @@ Berisi kode untuk melakukan anotasi otomatis pada teks berita menggunakan model 
 4. **models**
    Berisi direktori dan kode yang digunakan untuk menjalankan model. Direktori ini memerlukan beberapa subdirektori tambahan:
    - **model**:  Berisi model BiLSTM yang telah dilatih. Model dapat diunduh melalui tautan berikut: [Download Model BiLSTM](https://drive.google.com/file/d/1--REEJK8Lb7KddHzUP_eYUFEHGDiDcGg/view?usp=drive_link)
-   - **pretrain**: Berisi model Word2Vec yang telah dipra-latih. Model pretrain dapat diunduh melalui tautan berikut: [Download Model Pretrain Word2Vec](https://drive.google.com/drive/folders/1UEyJ8xGiqONYr4L-mO4nXXAZw5E64Fj7?usp=drive_link)
+   - **pretrain**: Berisi model Word2Vec yang telah dipra-latih. Model pretrain dapat diunduh melalui tautan berikut: [Download Model Pretrain Word2Vec](https://drive.google.com/drive/folders/1a5RwTTHxH_YdPjlKcbpIOD0Qihk_A10f?usp=drive_link)
 
 ## Struktur File
 1. **auto_labeling.py**
