@@ -49,15 +49,6 @@ class AutoLabeling:
             char_pad_idx=corpus.char_pad_idx,
             tag_pad_idx=corpus.tag_pad_idx
         )
-        bilstm.init_embeddings(
-            char_pad_idx=corpus.char_pad_idx,
-            word_pad_idx=corpus.word_pad_idx,
-            pretrained=corpus.word_field.vocab.vectors if corpus.wv_model else None,
-            freeze=True
-        )
-        bilstm.init_crf_transitions(
-            tag_names=corpus.tag_field.vocab.itos
-        )
 
         # Load Trainer Model
         print("Loading Trainer Model...")
