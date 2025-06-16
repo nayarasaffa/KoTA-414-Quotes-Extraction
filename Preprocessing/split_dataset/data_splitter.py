@@ -3,10 +3,10 @@ import random
 import argparse
 
 class DataSplitter:
-    def __init__(self, args):
-        self.input_file = args.input_file
-        self.train_ratio = args.train_ratio
-        self.test_size = args.test_size
+    def __init__(self, input_file, train_ratio, test_size):
+        self.input_file = input_file
+        self.train_ratio = train_ratio
+        self.test_size = test_size
         self.data = self.load_data()
     
     def load_data(self):
@@ -40,16 +40,5 @@ class DataSplitter:
         print(f"✅ Data successfully split: {len(train_data)} train, {len(validation_data)} validation, {len(test_data)} test")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Split JSON dataset into train, validation, and test sets.")
-    parser.add_argument(
-        "-i", "--input_file", type=str, help="Path to the input file"
-    )
-    parser.add_argument(
-        "--train_ratio", type=float, default=0.7, help="Proportion of data to use for training (default: 0.7)"
-    )
-    parser.add_argument(
-        "--test_size", type=int, default=10, help="Number of articles to use for testing (default: 10)"
-    )
-    args = parser.parse_args()
-    splitter = DataSplitter(args)
+    splitter = DataSplitter()
     splitter.save_data()
